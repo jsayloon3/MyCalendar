@@ -12,7 +12,7 @@ if (int.TryParse(Console.ReadLine(), out int year))
     // Get Days
     Calendar calendar = CultureInfo.InvariantCulture.Calendar;
     int months = calendar.GetMonthsInYear(year);
-    int numberOfWeeks = 7;
+    int numberOfDaysInWeek = 7;
 
     Console.WriteLine($"\nCalendar for Year {year}");
 
@@ -27,15 +27,15 @@ if (int.TryParse(Console.ReadLine(), out int year))
         for (int j = 0; j < days; j++)
         {
             DateTime currDate = new DateTime(year, month: i + 1, day: j + 1);
-            int numberOfWeek = CalendarUtility.GetEquivalentNumberOfWeek(calendar.GetDayOfWeek(currDate).ToString());
+            int numberOfDayInWeek = CalendarUtility.GetEquivalentNumberOfDayInWeek(calendar.GetDayOfWeek(currDate).ToString());
 
             if (ctr == 0)
             {
-                Console.Write($"{CalendarUtility.CalendarWeekHeaderFormat()} {Environment.NewLine}");
+                Console.Write($"{CalendarUtility.CalendarWeekHeaderFormat()}\n");
 
-                for (int k = 1; k < numberOfWeeks; k++)
+                for (int k = 1; k < numberOfDaysInWeek; k++)
                 {
-                    if (k != numberOfWeek)
+                    if (k != numberOfDayInWeek)
                     { 
                         CalendarUtility.FormatDisplayCalendar("");
                         ctr++;
@@ -46,12 +46,12 @@ if (int.TryParse(Console.ReadLine(), out int year))
 
             if (ctr < 7)
             {
-                CalendarUtility.FormatDisplayCalendar((j + 1).ToString(), (numberOfWeek == 1 || numberOfWeek == 7));
+                CalendarUtility.FormatDisplayCalendar((j + 1).ToString(), (numberOfDayInWeek == 1 || numberOfDayInWeek == 7));
                 ctr++;
             }
             else
             { 
-                CalendarUtility.FormatDisplayCalendar((j + 1).ToString(), (numberOfWeek == 1 || numberOfWeek == 7), nextLine: true);
+                CalendarUtility.FormatDisplayCalendar((j + 1).ToString(), (numberOfDayInWeek == 1 || numberOfDayInWeek == 7), nextLine: true);
                 ctr = 1;
             }
         }
@@ -61,7 +61,7 @@ if (int.TryParse(Console.ReadLine(), out int year))
 
     ask_again:
     Console.Write("\nDo you want to generate a calander again? [y/n]: ");
-    string answer = Console.ReadLine();
+    string? answer = Console.ReadLine();
 
     if (!string.IsNullOrWhiteSpace(answer) && !int.TryParse(answer, out int e) && (answer.StartsWith("y") || answer.StartsWith("n")))
         if (answer.StartsWith("y"))

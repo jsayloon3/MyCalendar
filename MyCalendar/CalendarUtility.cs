@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -18,21 +19,21 @@ namespace MyCalendar
             return monthDictionary[curMonth];
         }
 
-        public static int GetEquivalentNumberOfWeek(string week)
+        public static int GetEquivalentNumberOfDayInWeek(string week)
         {
-            int weekNumber = 1;
+            int dayNumber = 1;
             switch (week)
             {
-                case var _ when week.StartsWith("Su"): weekNumber = 1; break;
-                case var _ when week.StartsWith("Mo"): weekNumber = 2; break;
-                case var _ when week.StartsWith("Tu"): weekNumber = 3; break;
-                case var _ when week.StartsWith("We"): weekNumber = 4; break;
-                case var _ when week.StartsWith("Th"): weekNumber = 5; break;
-                case var _ when week.StartsWith("Fr"): weekNumber = 6; break;
-                case var _ when week.StartsWith("Sa"): weekNumber = 7; break;
+                case var _ when week.StartsWith("Su"): dayNumber = 1; break;
+                case var _ when week.StartsWith("Mo"): dayNumber = 2; break;
+                case var _ when week.StartsWith("Tu"): dayNumber = 3; break;
+                case var _ when week.StartsWith("We"): dayNumber = 4; break;
+                case var _ when week.StartsWith("Th"): dayNumber = 5; break;
+                case var _ when week.StartsWith("Fr"): dayNumber = 6; break;
+                case var _ when week.StartsWith("Sa"): dayNumber = 7; break;
             }
 
-            return weekNumber;
+            return dayNumber;
         }
 
         public static string CalendarWeekHeaderFormat()
