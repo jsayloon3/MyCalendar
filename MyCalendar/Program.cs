@@ -10,7 +10,7 @@ if (int.TryParse(Console.ReadLine(), out int year))
     // validate year
     // Get Months
     // Get Days
-    Calendar calendar = CultureInfo.InvariantCulture.Calendar;
+    Calendar calendar = CultureInfo.CurrentCulture.Calendar;
     int months = calendar.GetMonthsInYear(year);
     int numberOfDaysInWeek = 7;
 
@@ -18,7 +18,8 @@ if (int.TryParse(Console.ReadLine(), out int year))
 
     for (int i = 0; i < months; i++)
     {
-        string monthName = CalendarUtility.GetMonthName(curMonth: i);
+        //string monthName = CalendarUtility.GetMonthName(curMonth: i);
+        string monthName = DateTimeFormatInfo.CurrentInfo.GetMonthName(i + 1);
         int days = calendar.GetDaysInMonth(year, month: i + 1);
 
         Console.Write($"\n{monthName} {year}\n");
