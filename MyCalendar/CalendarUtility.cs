@@ -19,18 +19,18 @@ namespace MyCalendar
             return monthDictionary[curMonth];
         }
 
-        public static int GetEquivalentNumberOfDayInWeek(string week)
+        public static int GetEquivalentNumberOfDayInWeek(string day)
         {
             int dayNumber = 1;
-            switch (week)
+            switch (day)
             {
-                case var _ when week.StartsWith("Su"): dayNumber = 1; break;
-                case var _ when week.StartsWith("Mo"): dayNumber = 2; break;
-                case var _ when week.StartsWith("Tu"): dayNumber = 3; break;
-                case var _ when week.StartsWith("We"): dayNumber = 4; break;
-                case var _ when week.StartsWith("Th"): dayNumber = 5; break;
-                case var _ when week.StartsWith("Fr"): dayNumber = 6; break;
-                case var _ when week.StartsWith("Sa"): dayNumber = 7; break;
+                case var _ when day.StartsWith("Su"): dayNumber = 1; break;
+                case var _ when day.StartsWith("Mo"): dayNumber = 2; break;
+                case var _ when day.StartsWith("Tu"): dayNumber = 3; break;
+                case var _ when day.StartsWith("We"): dayNumber = 4; break;
+                case var _ when day.StartsWith("Th"): dayNumber = 5; break;
+                case var _ when day.StartsWith("Fr"): dayNumber = 6; break;
+                case var _ when day.StartsWith("Sa"): dayNumber = 7; break;
             }
 
             return dayNumber;
