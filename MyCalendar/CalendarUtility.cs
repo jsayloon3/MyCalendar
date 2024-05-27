@@ -1,24 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MyCalendar
+﻿namespace MyCalendar
 {
     public static class CalendarUtility
     {
-        public static string GetMonthName(int curMonth)
-        {
-            string[] monthDictionary = { 
-                "January", "February", "March", "April", "May", "June",
-                 "July", "August", "September", "October", "November", "December"
-            };
-
-            return monthDictionary[curMonth];
-        }
-
         public static int GetEquivalentNumberOfDayInWeek(string day)
         {
             int dayNumber = 1;
@@ -38,9 +21,7 @@ namespace MyCalendar
 
         public static string CalendarWeekHeaderFormat()
         {
-            string weekHeader = string.Format(@"Su  Mo  Tu  We  Th  Fr  Sa");
-
-            return weekHeader;
+            return string.Format(@"Su  Mo  Tu  We  Th  Fr  Sa");
         }
 
         public static void FormatDisplayCalendar(string day, bool isWeekend = false, bool nextLine = false)

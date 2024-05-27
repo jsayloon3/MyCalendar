@@ -1,6 +1,4 @@
 ﻿using System.Globalization;
-using System.Runtime.CompilerServices;
-using System.Text;
 using MyCalendar;
 
 i_run_again:
@@ -18,7 +16,6 @@ if (int.TryParse(Console.ReadLine(), out int year))
 
     for (int i = 0; i < months; i++)
     {
-        //string monthName = CalendarUtility.GetMonthName(curMonth: i);
         string monthName = DateTimeFormatInfo.CurrentInfo.GetMonthName(i + 1);
         int days = calendar.GetDaysInMonth(year, month: i + 1);
 
@@ -27,8 +24,7 @@ if (int.TryParse(Console.ReadLine(), out int year))
         int ctr = 0;
         for (int j = 0; j < days; j++)
         {
-            DateTime currDate = new DateTime(year, month: i + 1, day: j + 1);
-            int numberOfDayInWeek = CalendarUtility.GetEquivalentNumberOfDayInWeek(calendar.GetDayOfWeek(currDate).ToString());
+            int numberOfDayInWeek = CalendarUtility.GetEquivalentNumberOfDayInWeek(calendar.GetDayOfWeek(new DateTime(year, month: i + 1, day: j + 1)).ToString());
 
             if (ctr == 0)
             {
